@@ -102,7 +102,9 @@ def test_epd_case_closure_identity_and_revision(tmp_path):
     record_path = cases / "epd-cold-provisioning.json"
     record = json.loads(record_path.read_text(encoding="utf-8"))
     assert original.metadata["id"] == identity
-    assert original.metadata["sources"] == record["sources"]
+    normalized_source, = original.metadata["sources"]
+    source, = record["sources"]
+    assert normalized_source == {**source, "revision_precision": "full"}
     assert original.content["epd-cold-provisioning.json"] == record_path.read_bytes()
     assert original.content["case.json"] == record_path.read_bytes()
     content_path = cases / record["content"]
