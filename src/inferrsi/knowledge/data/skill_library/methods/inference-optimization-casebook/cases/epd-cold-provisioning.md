@@ -16,6 +16,10 @@ threshold is inferred after observing these results.
 For disaggregated multimodal serving, let N be the available GPUs, e the
 encoder GPU count, and mu_E and mu_PD the effective per-instance completion
 rates for encoding and combined prefill/decode. One GPU serves each instance.
+Both rates have units of completed requests per second per instance for
+the same request mix and generation policy. Pool capacity and C(e) have
+units of completed requests per second. The measured four-GPU feasible
+encoder counts are 1, 2 and 3, with 4 - e GPUs assigned to PD.
 The capacity proxy is
 
 ```text
@@ -28,7 +32,11 @@ fractional crossing and selects the maximum. It can retain an incumbent that
 ties for the maximum. Stage rates are inputs with workload-specific uncertainty.
 This rule assumes useful stage capacity scales with instance count under the
 deployment's routing and transfer behavior. Verify that assumption with the
-complete serving path. The [allocator implementation](https://github.com/Kelvin-Al/epd-provisioning/blob/3ed184e3a83229806a9fa1adb2bc75f1744c6518/planner.py)
+complete serving path. Preprocessing, embedding transfer, shared host and
+storage contention, routing imbalance and batching effects have no separate
+terms in this expression. They must be reflected in matched effective rates
+or investigated through a more appropriate model.
+The [allocator implementation](https://github.com/Kelvin-Al/epd-provisioning/blob/3ed184e3a83229806a9fa1adb2bc75f1744c6518/planner.py)
 provides the exact integer and tie behavior.
 
 For positive constant stage rates, this minimum is increasing before the
