@@ -47,7 +47,7 @@ def test_corpus_covers_all_three_kinds_without_double_counting(corpus):
     for document in corpus.documents:
         kinds[document.kind] = kinds.get(document.kind, 0) + 1
     assert kinds["skill"] == 80
-    assert kinds["case"] == 7
+    assert kinds["case"] == 8
     # Packaged-skill projections are excluded so one owner is not ranked twice.
     assert all(
         document.kind != "record" or "skills." not in document.identity
@@ -223,7 +223,7 @@ def test_packaged_cases_declare_known_outcomes():
             assert finding["direction"].strip() and finding["reason"].strip()
             assert finding["keywords"]
             total += 1
-    assert total == 35
+    assert total == 37
 
 
 def test_result_carries_a_reference_the_caller_can_open(corpus):

@@ -78,6 +78,11 @@ Source: perf-optimization-casebook @ f33e0e5f, §how-to-use.
 
 ## Recorded diagnostic options
 
+The [EPD cold-provisioning case](cases/epd-cold-provisioning.md) records
+integer E:PD GPU allocation, applicability and a matched cold four-H800
+MMMU comparison. Its source record retains external author-reported scope,
+published artifact hashes and INCONCLUSIVE formal acceptance.
+
 Current owner-local records retain rejected directions alongside their limits:
 
 - [Qwen B300](cases/qwen-b300-rejected-directions.md): full-image rejection,

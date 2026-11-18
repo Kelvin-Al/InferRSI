@@ -1,5 +1,11 @@
 # InferRSI Reference Matrix
 
+## EPD cold-serving allocation case
+
+| Source | Inspected scope | Extraction and qualification boundary |
+| --- | --- | --- |
+| Kelvin-Al/epd-provisioning cold comparison and integer allocator | Seven published implementation, frozen-plan, result and failure-status files. The [typed source record](../src/inferrsi/knowledge/data/skill_library/methods/inference-optimization-casebook/cases/epd-cold-provisioning.json) owns the immutable source revision and rehashed file identities. | [EPD cold-provisioning case](../src/inferrsi/knowledge/data/skill_library/methods/inference-optimization-casebook/cases/epd-cold-provisioning.md). External author-reported four-H800, preprocessed MMMU observation. Formal acceptance INCONCLUSIVE. No new device or answer-quality validation. |
+
 **Branch:** `opus/meta-skill-bootstrap` | **Integration date:** 2026-10-16 | **Comparison anchor:** `d96ff8d3`
 
 Current skill links resolve to the complete categorized
