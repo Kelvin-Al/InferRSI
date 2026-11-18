@@ -62,6 +62,15 @@ def test_cases_are_ranked_beside_skills(corpus):
     assert _ranked(result, "case.drama3-rejected-directions") == 1
 
 
+def test_epd_free_text_query_returns_an_openable_case(corpus, capsys):
+    result = find("EPD cold MMMU GPU allocation stage capacity", corpus, limit=5)
+    hit = next(item for item in result["items"] if item["id"] == "case.epd-cold-provisioning")
+    assert main(hit["read_args"]) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["id"] == "case.epd-cold-provisioning"
+    assert "## Cold observation" in payload["content"]
+
+
 def test_findings_keywords_reach_a_problem_phrased_query(corpus):
     """The case title names a campaign; the query names the symptom."""
     result = find("average batch size over the whole trace looks healthy", corpus, limit=5)
