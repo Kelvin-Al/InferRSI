@@ -1,0 +1,335 @@
+{
+  "public_repository": "https://github.com/Kelvin-Al/InferRSI.git",
+  "expected_head": "2d4e040aa0337cbfb9bf8fcd429d8a5639008de6",
+  "python": "3.14.6",
+  "os": "Windows",
+  "architecture": "AMD64",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "init",
+        "--quiet"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "config",
+        "core.autocrlf",
+        "false"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "fetch",
+        "--no-tags",
+        "--depth=1",
+        "https://github.com/Kelvin-Al/InferRSI.git",
+        "2d4e040aa0337cbfb9bf8fcd429d8a5639008de6"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Kelvin-Al/InferRSI\n * branch            2d4e040aa0337cbfb9bf8fcd429d8a5639008de6 -> FETCH_HEAD"
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "2d4e040aa0337cbfb9bf8fcd429d8a5639008de6",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "46974ae22d1acf03b580d180373dec14ca5845d0",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all",
+        "--ignored=matching"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "show",
+        "-s",
+        "--format=%ct",
+        "2d4e040aa0337cbfb9bf8fcd429d8a5639008de6"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "1795510961",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "cat-file",
+        "blob",
+        "HEAD:src/inferrsi/knowledge/data/skill_library/casebooks/inference/inference-optimization-casebook/SKILL.md"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "cat-file",
+        "blob",
+        "HEAD:src/inferrsi/knowledge/data/skill_library/casebooks/inference/inference-optimization-casebook/cases/epd-cold-provisioning.json"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "cat-file",
+        "blob",
+        "HEAD:src/inferrsi/knowledge/data/skill_library/casebooks/inference/inference-optimization-casebook/cases/epd-cold-provisioning.md"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "cat-file",
+        "blob",
+        "HEAD:src/inferrsi/knowledge/data/skill_library/_compiled/_provenance.json"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "cat-file",
+        "blob",
+        "HEAD:src/inferrsi/knowledge/data/skill_library/_compiled/inputs.json"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "venv",
+        "<work>\\venv"
+      ],
+      "cwd": "<work>",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "<work>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--quiet",
+        "--index-url",
+        "https://pypi.org/simple",
+        "setuptools==83.0.0",
+        "setuptools-scm==9.2.2",
+        "wheel==0.47.0",
+        "packaging==26.3",
+        "PyYAML==6.0.3"
+      ],
+      "cwd": "<work>",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "<work>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "list",
+        "--format=json"
+      ],
+      "cwd": "<work>",
+      "exit_code": 0,
+      "stdout": "[{\"name\": \"packaging\", \"version\": \"26.3\"}, {\"name\": \"pip\", \"version\": \"26.1.2\"}, {\"name\": \"PyYAML\", \"version\": \"6.0.3\"}, {\"name\": \"setuptools\", \"version\": \"83.0.0\"}, {\"name\": \"setuptools-scm\", \"version\": \"9.2.2\"}, {\"name\": \"wheel\", \"version\": \"0.47.0\"}]",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "<work>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-deps",
+        "--no-build-isolation",
+        "--no-index",
+        "--wheel-dir",
+        "<work>\\dist",
+        "."
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "Processing .\\.\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: inferrsi\n  Building wheel for inferrsi (pyproject.toml): started\n  Building wheel for inferrsi (pyproject.toml): finished with status 'done'\n  Created wheel for inferrsi: filename=inferrsi-0.1.dev1+g2d4e040aa-py3-none-any.whl size=3288591 sha256=d10d3f864a85efda65f31401dc60348f9cfbfe10513495769421a96c7ffc28bd\n  Stored in directory: <temp>\\pip-ephem-wheel-cache-oa3ny_50\\wheels\\95\\a2\\1e\\c9ec394cccbb4ee9f141d814001ac67dbdf99ca540a845d2a3\nSuccessfully built inferrsi",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "<work>\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--no-index",
+        "--target",
+        "<work>\\installed",
+        "<work>\\dist\\inferrsi-0.1.dev1+g2d4e040aa-py3-none-any.whl"
+      ],
+      "cwd": "<work>",
+      "exit_code": 0,
+      "stdout": "Processing .\\dist\\inferrsi-0.1.dev1+g2d4e040aa-py3-none-any.whl\nInstalling collected packages: inferrsi\nSuccessfully installed inferrsi-0.1.dev1+g2d4e040aa",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "<work>\\venv\\Scripts\\python.exe",
+        "-I",
+        "-c",
+        "import sys; sys.path.insert(0, 'installed');\n\nimport hashlib\nimport io\nimport json\nfrom contextlib import redirect_stdout\nfrom importlib.resources import files\nfrom pathlib import Path\n\nimport inferrsi\nfrom inferrsi.apps.cli import main\nfrom inferrsi.knowledge.knowledge_operations import KnowledgeReader\nfrom inferrsi.knowledge.skill_catalog import skill_reference\n\nexpected = json.loads(Path(\"resources.json\").read_text(encoding=\"utf-8\"))\nroot = Path(str(files(\"inferrsi\")))\nassert Path(inferrsi.__file__).resolve().is_relative_to(Path(\"installed\").resolve())\nfor name, sha in expected.items():\n    assert hashlib.sha256((root / name.removeprefix(\"inferrsi/\")).read_bytes()).hexdigest() == sha\n\nlibrary = root / \"knowledge/data/skill_library\"\nowner = \"casebooks/inference/inference-optimization-casebook\"\ncompiled = json.loads((library / \"_compiled/inputs.json\").read_bytes())\nmanifest = json.loads((library / \"_compiled/_provenance.json\").read_bytes())\nassert manifest[\"source_revision\"] == \"5f66620fbf63b76926aa8678806534a96f360b32\"\nskill = compiled[\"inference-optimization-casebook\"]\nfor name in (\"SKILL.md\", \"cases/epd-cold-provisioning.md\", \"cases/epd-cold-provisioning.json\"):\n    assert skill[\"files\"][name] == expected[f\"inferrsi/knowledge/data/skill_library/{owner}/{name}\"]\ncase_path = skill_reference(library, \"inference-optimization-casebook\", \"cases/epd-cold-provisioning.md\")\nassert case_path == library / owner / \"cases/epd-cold-provisioning.md\"\n\ndef cli(args):\n    out = io.StringIO()\n    with redirect_stdout(out):\n        assert main(args) == 0\n    return json.loads(out.getvalue())\n\nidentity = \"case.epd-cold-provisioning\"\nfound = cli([\"find\", \"EPD cold MMMU GPU allocation stage capacity\", \"--limit\", \"5\", \"--json\"])\nhit = next(row for row in found[\"items\"] if row[\"id\"] == identity)\nassert hit[\"path\"] == f\"{owner}/cases/epd-cold-provisioning.md\"\nopened = cli(hit[\"read_args\"])\nassert opened[\"id\"] == identity\nassert \"## Position-balanced cold follow-up\" in opened[\"content\"]\nassert opened[\"content\"].encode(\"utf-8\") == (library / hit[\"path\"]).read_bytes()\n\nreader = KnowledgeReader(skill_root=library)\nbundle = reader.read(identity)\nrecord = reader.resource(identity, \"epd-cold-provisioning.json\", revision=bundle.revision)\nkey = f\"inferrsi/knowledge/data/skill_library/{owner}/cases/epd-cold-provisioning.json\"\nassert hashlib.sha256(record).hexdigest() == expected[key]\nprint(\"Installed outside the checkout; five resource hashes match Git blobs\")\nprint(\"Compiled catalog contains the registered EPD case and source record\")\nprint(\"Installed find returned and opened the EPD case:\", hit[\"id\"])\nprint(\"Case content revision:\", bundle.revision)\n"
+      ],
+      "cwd": "<work>",
+      "exit_code": 0,
+      "stdout": "Installed outside the checkout; five resource hashes match Git blobs\nCompiled catalog contains the registered EPD case and source record\nInstalled find returned and opened the EPD case: case.epd-cold-provisioning\nCase content revision: sha256:6eab84673b286b756d626920fd96dfc50f1468c549d34343740d71c0c1da36c8",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--no-replace-objects",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=no"
+      ],
+      "cwd": "<work>\\checkout",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "actual_head": "2d4e040aa0337cbfb9bf8fcd429d8a5639008de6",
+  "tree": "46974ae22d1acf03b580d180373dec14ca5845d0",
+  "pre_build_status": "",
+  "source_date_epoch": "1795510961",
+  "git_and_checkout_sha256": {
+    "inferrsi/knowledge/data/skill_library/casebooks/inference/inference-optimization-casebook/SKILL.md": "2f6061305991384727d6d0d4519ad9b230e19c49bb784e0bdc2ae5306d66e27d",
+    "inferrsi/knowledge/data/skill_library/casebooks/inference/inference-optimization-casebook/cases/epd-cold-provisioning.json": "68e471335193e2027779e1377ee22e3384f6c3c66034f0a7b7631e1b67d2e245",
+    "inferrsi/knowledge/data/skill_library/casebooks/inference/inference-optimization-casebook/cases/epd-cold-provisioning.md": "9d1931e74585a57d824f9c48003aa1ad155d9d7c7d0d605f17c7d807e81233c4",
+    "inferrsi/knowledge/data/skill_library/_compiled/_provenance.json": "2ad157e2bee0eab5f7786284f8dd208b388a8b8866bfed8104ac38337ab27efd",
+    "inferrsi/knowledge/data/skill_library/_compiled/inputs.json": "691cb792448e09487775a2188feec3963aa35fa6d40ba0a69193de49dbc1bf95"
+  },
+  "build_tools": [
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pip",
+      "version": "26.1.2"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3"
+    },
+    {
+      "name": "setuptools",
+      "version": "83.0.0"
+    },
+    {
+      "name": "setuptools-scm",
+      "version": "9.2.2"
+    },
+    {
+      "name": "wheel",
+      "version": "0.47.0"
+    }
+  ],
+  "wheel": {
+    "filename": "inferrsi-0.1.dev1+g2d4e040aa-py3-none-any.whl",
+    "sha256": "d10d3f864a85efda65f31401dc60348f9cfbfe10513495769421a96c7ffc28bd",
+    "size_bytes": 3288591,
+    "entry_sha256": {
+      "inferrsi/knowledge/data/skill_library/casebooks/inference/inference-optimization-casebook/SKILL.md": "2f6061305991384727d6d0d4519ad9b230e19c49bb784e0bdc2ae5306d66e27d",
+      "inferrsi/knowledge/data/skill_library/casebooks/inference/inference-optimization-casebook/cases/epd-cold-provisioning.json": "68e471335193e2027779e1377ee22e3384f6c3c66034f0a7b7631e1b67d2e245",
+      "inferrsi/knowledge/data/skill_library/casebooks/inference/inference-optimization-casebook/cases/epd-cold-provisioning.md": "9d1931e74585a57d824f9c48003aa1ad155d9d7c7d0d605f17c7d807e81233c4",
+      "inferrsi/knowledge/data/skill_library/_compiled/_provenance.json": "2ad157e2bee0eab5f7786284f8dd208b388a8b8866bfed8104ac38337ab27efd",
+      "inferrsi/knowledge/data/skill_library/_compiled/inputs.json": "691cb792448e09487775a2188feec3963aa35fa6d40ba0a69193de49dbc1bf95"
+    }
+  },
+  "post_build_tracked_status": ""
+}
