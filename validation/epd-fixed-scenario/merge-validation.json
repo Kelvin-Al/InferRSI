@@ -1,0 +1,49 @@
+{
+  "head_sha": "930faac3e45efca27086cb2891d00a10ce67edf2",
+  "upstream_merged": "c45dde4f92dc6976b85a6e6990925bf5797af4ec",
+  "source_revision_for_generated_catalog": "92eaf1e313c9574129e3faadcd9176024252dd6d",
+  "later_main_with_clean_merge_tree": "3efb03ea71356786b19b705e53f65267c17d19bf",
+  "checks": {
+    "knowledge_find_contract_catalog_coverage": {
+      "tests": 112,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "initial_targeted_run": {
+      "tests": 112,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "failure": "Windows temporary path length; shorter basetemp rerun passed"
+    },
+    "catalog_generation_check": "passed",
+    "coverage_generation_check": "passed",
+    "ruff_on_changed_python_files": "passed",
+    "git_diff_check": "passed",
+    "full_ruff": {
+      "errors": 149,
+      "paths_with_diagnostics": 23,
+      "changed_paths_with_diagnostics": 0
+    },
+    "full_pytest_maxfail_5": {
+      "status": "stopped after five failures/errors",
+      "passed": 306,
+      "failed": 3,
+      "errors": 2,
+      "skipped": 6
+    },
+    "isolated_wheel": {
+      "checkout": "clean detached at head before build",
+      "wheel": "inferrsi-0.1.dev121+g930faac3e-py3-none-any.whl",
+      "wheel_sha256": "733d8a1cefba8e8c3d1f8e74dda5fb0a107a8d9450e7f82363409ddf653369ef",
+      "find_rank": 1,
+      "case_revision": "sha256:6eab84673b286b756d626920fd96dfc50f1468c549d34343740d71c0c1da36c8",
+      "source_wheel_install_bundle_sha256": {
+        "epd-cold-provisioning.md": "9d1931e74585a57d824f9c48003aa1ad155d9d7c7d0d605f17c7d807e81233c4",
+        "epd-cold-provisioning.json": "68e471335193e2027779e1377ee22e3384f6c3c66034f0a7b7631e1b67d2e245"
+      }
+    }
+  },
+  "scope": "Author-executed verification. Independent review and hosted checks are separate."
+}

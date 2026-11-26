@@ -1,0 +1,88 @@
+{
+  "campaign": "local-fixed-epd-tool-use",
+  "purpose": "Evaluate autonomous use of the EPD Knowledge using a locally served model. Scope is agent answer quality under this protocol.",
+  "plane": "harness",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_revision": "37561816e66b5b9153b1b64c10968c18c1e6f4a0",
+  "case_repo_revision": "44dcedd204445c61f3c0169a65aedd9f3bb51620",
+  "case_revisions": {
+    "original": "sha256:6eab84673b286b756d626920fd96dfc50f1468c549d34343740d71c0c1da36c8",
+    "revised": "sha256:1d87e2ff4e557439351e20ea78fd9b6a77fdb65d8a8d517d1a2359f14ac8484b"
+  },
+  "scenario": {
+    "agent_backend": "vLLM 0.33.0, one H800, Qwen3.8-27B BF16, thinking disabled",
+    "scope": "Collect model-selected tool calls for one fixed historical deployment. No final answer or new service measurements scored.",
+    "budget": "one allocation, up to 12 minutes, 7 decisions per trial, one retry on structured-response errors"
+  },
+  "arms": {
+    "absent": "EPD removed from search and unavailable to read",
+    "original": "PR head case",
+    "revised": "existing local structured-evidence case draft"
+  },
+  "gates": {
+    "required_for_claim": "Only the two prespecified tool behavior rates. Inspect chronology.",
+    "find": "successful model-authored find request",
+    "knowledge_calculation_attempt": "a model-authored calculate request after it opened the EPD case",
+    "strong_evidence": "calculator expression exposes the minimum of E and PD pool capacities at the supplied rates for all three allocations",
+    "baseline": "Measure valid rule attempts without case independently; it cannot demonstrate reading a missing case."
+  },
+  "schedule": [
+    {
+      "task": "archive-replay",
+      "arm": "absent",
+      "seed": 10801
+    },
+    {
+      "task": "archive-replay",
+      "arm": "revised",
+      "seed": 10801
+    },
+    {
+      "task": "archive-replay",
+      "arm": "original",
+      "seed": 10801
+    },
+    {
+      "task": "handover-check",
+      "arm": "original",
+      "seed": 10802
+    },
+    {
+      "task": "handover-check",
+      "arm": "absent",
+      "seed": 10802
+    },
+    {
+      "task": "handover-check",
+      "arm": "revised",
+      "seed": 10802
+    }
+  ],
+  "files": {
+    "fixed.py": "cc9c38c49e81d75039936ec479f2c4acf7464e373bd9d0ad2f884b724d7bd59f",
+    "fixed-tasks.json": "646b3167efcb2e4d85319f00415011e6f7aac22ae5b4a7905ab69a550976e426",
+    "run-qwen.sh": "c1eedb63811e072039ebbd1fcfa07fef49e90e446129996b74b79c5d486dae39",
+    "library-data.tar.gz": "0e45db70e515e6a1de9f720e51736481786518d5adbfb5e6ccd6ab85ad746219",
+    "evaluate.py": "f435fa55b6861380979c3f9c4c462144000edf6869ab4ea574385d4478533687",
+    "calculator.py": "5bc4015da9121f5bd8fb98f6241694dde118579b1b9e5132163573514e33cc0d",
+    "planner.py": "6bf4ea101fc12da1ca9166121a09f362b22feff3bf45ccf94b037dec1d93ce68",
+    "client.py": "f8b62bf1164f9f464faf98406e46a2e945a1e70ff4588b0ad0725c68e441c1aa"
+  },
+  "fixed_inputs": {
+    "gpus": 4,
+    "accelerator": "NVIDIA H800, one GPU per effective worker",
+    "deployment_model": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "workload": "Cold MMMU, 720 single-image validation requests, fixed 64 generation tokens",
+    "cache_policy": "Fresh encoder work without embedding reuse",
+    "encoder_rate": 25.100567874609354,
+    "pd_rate": 13.71292023566119,
+    "unit": "completed requests/s per stage instance",
+    "input_scope": "Previously recorded rates for this deployment. Use as frozen inputs. No new calibration or load run."
+  },
+  "rate_source": {
+    "url": "https://github.com/Kelvin-Al/epd-provisioning/blob/3ed184e3a83229806a9fa1adb2bc75f1744c6518/experiments/four-gpu/results/mmmu/plan.json",
+    "sha256": "93a5b729357464f9ae2d0b62c120e5e5f22ff2e82db92a3a6afa10eae773c7d5",
+    "encoder_field": "e_rate_upper_bound_rps",
+    "pd_field": "pd_rate_rps"
+  }
+}

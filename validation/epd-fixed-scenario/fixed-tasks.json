@@ -1,0 +1,10 @@
+[
+  {
+    "id": "archive-replay",
+    "request": "I need to reproduce the GPU split selection for our earlier cold MMMU experiment. Look up the local engineering procedure for this deployment. With the supplied E and PD rates, try calculating the modeled total capacity for each feasible integer allocation."
+  },
+  {
+    "id": "handover-check",
+    "request": "The night-shift handover gives the frozen E and PD rates for the four-H800 cold image service. Which existing engineering method applies to assigning encoder versus prefill/decode workers? Consult the local material, then try the arithmetic for the three allocations before giving advice."
+  }
+]

@@ -1,0 +1,436 @@
+{
+  "run_spec_sha256": "86ad7b39d8d73f8826a8af6f3c151732c3942d1de7303dfdc2def2883e38e065",
+  "fixed_inputs": {
+    "gpus": 4,
+    "accelerator": "NVIDIA H800, one GPU per effective worker",
+    "deployment_model": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "workload": "Cold MMMU, 720 single-image validation requests, fixed 64 generation tokens",
+    "cache_policy": "Fresh encoder work without embedding reuse",
+    "encoder_rate": 25.100567874609354,
+    "pd_rate": 13.71292023566119,
+    "unit": "completed requests/s per stage instance",
+    "input_scope": "Previously recorded rates for this deployment. Use as frozen inputs. No new calibration or load run."
+  },
+  "rate_source": {
+    "url": "https://github.com/Kelvin-Al/epd-provisioning/blob/3ed184e3a83229806a9fa1adb2bc75f1744c6518/experiments/four-gpu/results/mmmu/plan.json",
+    "sha256": "93a5b729357464f9ae2d0b62c120e5e5f22ff2e82db92a3a6afa10eae773c7d5",
+    "encoder_field": "e_rate_upper_bound_rps",
+    "pd_field": "pd_rate_rps"
+  },
+  "tool_metrics": {
+    "absent": {
+      "scheduled": 2,
+      "graded": 2,
+      "find": 2,
+      "epd_opened": 0,
+      "calculation_attempt": 0,
+      "calculation_after_read": 0,
+      "correct_min_rule_all_splits": 0,
+      "correct_min_rule_all_splits_after_read": 0
+    },
+    "original": {
+      "scheduled": 2,
+      "graded": 2,
+      "find": 2,
+      "epd_opened": 2,
+      "calculation_attempt": 2,
+      "calculation_after_read": 2,
+      "correct_min_rule_all_splits": 2,
+      "correct_min_rule_all_splits_after_read": 2
+    },
+    "revised": {
+      "scheduled": 2,
+      "graded": 2,
+      "find": 2,
+      "epd_opened": 2,
+      "calculation_attempt": 2,
+      "calculation_after_read": 2,
+      "correct_min_rule_all_splits": 2,
+      "correct_min_rule_all_splits_after_read": 2
+    }
+  },
+  "trials": [
+    {
+      "task": "archive-replay",
+      "arm": "absent",
+      "seed": 10801,
+      "actions": [
+        {
+          "action": "find",
+          "argument": "cold MMMU GPU split selection procedure",
+          "status": "success",
+          "hits": [
+            "case.vllm-gdn-source-contract",
+            "case.admission-drain-occupancy",
+            "case.drama3-rejected-directions"
+          ]
+        },
+        {
+          "action": "find",
+          "argument": "cold MMMU Qwen2.5-VL-3B H800 encoder prefill decode GPU split allocation",
+          "status": "success",
+          "hits": [
+            "case.vllm-gdn-source-contract",
+            "case.admission-drain-occupancy",
+            "case.sglang-gdn-source-contract"
+          ]
+        },
+        {
+          "action": "finish"
+        }
+      ],
+      "protocol_retries": 0,
+      "state": "graded",
+      "grade": {
+        "find": true,
+        "epd_opened": false,
+        "calculation_attempt": false,
+        "calculation_after_read": false,
+        "correct_min_rule_all_splits": false,
+        "correct_min_rule_all_splits_after_read": false
+      },
+      "elapsed_seconds": 4.442
+    },
+    {
+      "task": "archive-replay",
+      "arm": "revised",
+      "seed": 10801,
+      "actions": [
+        {
+          "action": "find",
+          "argument": "cold MMMU GPU split selection procedure",
+          "status": "success",
+          "hits": [
+            "case.epd-cold-provisioning",
+            "case.vllm-gdn-source-contract",
+            "case.admission-drain-occupancy"
+          ]
+        },
+        {
+          "action": "read_1",
+          "status": "success",
+          "id": "case.epd-cold-provisioning",
+          "revision": "sha256:1d87e2ff4e557439351e20ea78fd9b6a77fdb65d8a8d517d1a2359f14ac8484b",
+          "files": {
+            "cold-order-evidence.json": "6e5ed0afbdbdb39604d2e6867d0ab662b7c51304f947a2dda5a6505ecc28264c",
+            "epd-cold-provisioning.json": "fe42b6e374395ab71e2bc3ac0ec5b25fd870ad0cb8f3bdcfcde5721e09c3460e",
+            "epd-cold-provisioning.md": "cfe7917d00f68b6929bcf7d5bfade857d2238ff283bb18b1246bccbe22e4f03a"
+          }
+        },
+        {
+          "action": "calculate",
+          "argument": "e=1; min(e*25.100567874609354, (4-e)*13.71292023566119); e=2; min(e*25.100567874609354, (4-e)*13.71292023566119); e=3; min(e*25.100567874609354, (4-e)*13.71292023566119); e_fractional = 4*13.71292023566119/(25.100567874609354+13.71292023566119)",
+          "status": "invalid"
+        },
+        {
+          "action": "calculate",
+          "argument": "min(1*25.100567874609354, 3*13.71292023566119); min(2*25.100567874609354, 2*13.71292023566119); min(3*25.100567874609354, 1*13.71292023566119); 4*13.71292023566119/(25.100567874609354+13.71292023566119)",
+          "status": "success",
+          "matches_min_rule_checks": [
+            1,
+            2,
+            3
+          ],
+          "expressions": [
+            {
+              "expression": "min(1*25.100567874609354, 3*13.71292023566119)",
+              "value": 25.100567874609354
+            },
+            {
+              "expression": "min(2*25.100567874609354, 2*13.71292023566119)",
+              "value": 27.42584047132238
+            },
+            {
+              "expression": "min(3*25.100567874609354, 1*13.71292023566119)",
+              "value": 13.71292023566119
+            },
+            {
+              "expression": "4*13.71292023566119/(25.100567874609354+13.71292023566119)",
+              "value": 1.413211839832821
+            }
+          ]
+        },
+        {
+          "action": "finish"
+        }
+      ],
+      "protocol_retries": 0,
+      "state": "graded",
+      "grade": {
+        "find": true,
+        "epd_opened": true,
+        "calculation_attempt": true,
+        "calculation_after_read": true,
+        "correct_min_rule_all_splits": true,
+        "correct_min_rule_all_splits_after_read": true
+      },
+      "elapsed_seconds": 21.746
+    },
+    {
+      "task": "archive-replay",
+      "arm": "original",
+      "seed": 10801,
+      "actions": [
+        {
+          "action": "find",
+          "argument": "cold MMMU GPU split selection procedure",
+          "status": "success",
+          "hits": [
+            "case.epd-cold-provisioning",
+            "case.vllm-gdn-source-contract",
+            "case.admission-drain-occupancy"
+          ]
+        },
+        {
+          "action": "read_1",
+          "status": "success",
+          "id": "case.epd-cold-provisioning",
+          "revision": "sha256:6eab84673b286b756d626920fd96dfc50f1468c549d34343740d71c0c1da36c8",
+          "files": {
+            "epd-cold-provisioning.json": "68e471335193e2027779e1377ee22e3384f6c3c66034f0a7b7631e1b67d2e245",
+            "epd-cold-provisioning.md": "9d1931e74585a57d824f9c48003aa1ad155d9d7c7d0d605f17c7d807e81233c4"
+          }
+        },
+        {
+          "action": "calculate",
+          "argument": "min(1 * 25.100567874609354, 3 * 13.71292023566119); min(2 * 25.100567874609354, 2 * 13.71292023566119); min(3 * 25.100567874609354, 1 * 13.71292023566119); 4 * 13.71292023566119 / (25.100567874609354 + 13.71292023566119)",
+          "status": "success",
+          "matches_min_rule_checks": [
+            1,
+            2,
+            3
+          ],
+          "expressions": [
+            {
+              "expression": "min(1 * 25.100567874609354, 3 * 13.71292023566119)",
+              "value": 25.100567874609354
+            },
+            {
+              "expression": "min(2 * 25.100567874609354, 2 * 13.71292023566119)",
+              "value": 27.42584047132238
+            },
+            {
+              "expression": "min(3 * 25.100567874609354, 1 * 13.71292023566119)",
+              "value": 13.71292023566119
+            },
+            {
+              "expression": "4 * 13.71292023566119 / (25.100567874609354 + 13.71292023566119)",
+              "value": 1.413211839832821
+            }
+          ]
+        },
+        {
+          "action": "finish"
+        }
+      ],
+      "protocol_retries": 0,
+      "state": "graded",
+      "grade": {
+        "find": true,
+        "epd_opened": true,
+        "calculation_attempt": true,
+        "calculation_after_read": true,
+        "correct_min_rule_all_splits": true,
+        "correct_min_rule_all_splits_after_read": true
+      },
+      "elapsed_seconds": 11.784
+    },
+    {
+      "task": "handover-check",
+      "arm": "original",
+      "seed": 10802,
+      "actions": [
+        {
+          "action": "find",
+          "argument": "encoder prefill decode worker allocation H800 Qwen2.5-VL cold image service",
+          "status": "success",
+          "hits": [
+            "case.epd-cold-provisioning",
+            "case.sglang-gdn-source-contract",
+            "case.sarathi-chunk-budget"
+          ]
+        },
+        {
+          "action": "read_1",
+          "status": "success",
+          "id": "case.epd-cold-provisioning",
+          "revision": "sha256:6eab84673b286b756d626920fd96dfc50f1468c549d34343740d71c0c1da36c8",
+          "files": {
+            "epd-cold-provisioning.json": "68e471335193e2027779e1377ee22e3384f6c3c66034f0a7b7631e1b67d2e245",
+            "epd-cold-provisioning.md": "9d1931e74585a57d824f9c48003aa1ad155d9d7c7d0d605f17c7d807e81233c4"
+          }
+        },
+        {
+          "action": "calculate",
+          "argument": "min(1 * 25.100567874609354, 3 * 13.71292023566119); min(2 * 25.100567874609354, 2 * 13.71292023566119); min(3 * 25.100567874609354, 1 * 13.71292023566119); 4 * 13.71292023566119 / (25.100567874609354 + 13.71292023566119)",
+          "status": "success",
+          "matches_min_rule_checks": [
+            1,
+            2,
+            3
+          ],
+          "expressions": [
+            {
+              "expression": "min(1 * 25.100567874609354, 3 * 13.71292023566119)",
+              "value": 25.100567874609354
+            },
+            {
+              "expression": "min(2 * 25.100567874609354, 2 * 13.71292023566119)",
+              "value": 27.42584047132238
+            },
+            {
+              "expression": "min(3 * 25.100567874609354, 1 * 13.71292023566119)",
+              "value": 13.71292023566119
+            },
+            {
+              "expression": "4 * 13.71292023566119 / (25.100567874609354 + 13.71292023566119)",
+              "value": 1.413211839832821
+            }
+          ]
+        },
+        {
+          "action": "finish"
+        }
+      ],
+      "protocol_retries": 0,
+      "state": "graded",
+      "grade": {
+        "find": true,
+        "epd_opened": true,
+        "calculation_attempt": true,
+        "calculation_after_read": true,
+        "correct_min_rule_all_splits": true,
+        "correct_min_rule_all_splits_after_read": true
+      },
+      "elapsed_seconds": 12.418
+    },
+    {
+      "task": "handover-check",
+      "arm": "absent",
+      "seed": 10802,
+      "actions": [
+        {
+          "action": "find",
+          "argument": "encoder prefill decode worker allocation H800 Qwen2.5-VL cold image service",
+          "status": "success",
+          "hits": [
+            "case.sglang-gdn-source-contract",
+            "case.sarathi-chunk-budget",
+            "case.admission-drain-occupancy"
+          ]
+        },
+        {
+          "action": "find",
+          "argument": "encoder prefill decode worker allocation H800 Qwen2.5-VL cold image service",
+          "status": "invalid"
+        },
+        {
+          "action": "find",
+          "argument": "encoder prefill decode worker allocation H800 Qwen2.5-VL cold image service",
+          "status": "invalid"
+        },
+        {
+          "action": "find",
+          "argument": "encoder prefill decode worker allocation H800 Qwen2.5-VL cold image service",
+          "status": "invalid"
+        },
+        {
+          "action": "find",
+          "argument": "encoder prefill decode worker allocation H800 Qwen2.5-VL cold image service",
+          "status": "invalid"
+        },
+        {
+          "action": "find",
+          "argument": "encoder prefill decode worker allocation H800 Qwen2.5-VL cold image service",
+          "status": "invalid"
+        },
+        {
+          "action": "find",
+          "argument": "encoder prefill decode worker allocation H800 Qwen2.5-VL cold image service",
+          "status": "invalid"
+        }
+      ],
+      "protocol_retries": 0,
+      "state": "graded",
+      "grade": {
+        "find": true,
+        "epd_opened": false,
+        "calculation_attempt": false,
+        "calculation_after_read": false,
+        "correct_min_rule_all_splits": false,
+        "correct_min_rule_all_splits_after_read": false
+      },
+      "elapsed_seconds": 9.694
+    },
+    {
+      "task": "handover-check",
+      "arm": "revised",
+      "seed": 10802,
+      "actions": [
+        {
+          "action": "find",
+          "argument": "encoder prefill decode worker allocation H800 Qwen2.5-VL cold image service",
+          "status": "success",
+          "hits": [
+            "case.epd-cold-provisioning",
+            "case.sglang-gdn-source-contract",
+            "case.sarathi-chunk-budget"
+          ]
+        },
+        {
+          "action": "read_1",
+          "status": "success",
+          "id": "case.epd-cold-provisioning",
+          "revision": "sha256:1d87e2ff4e557439351e20ea78fd9b6a77fdb65d8a8d517d1a2359f14ac8484b",
+          "files": {
+            "cold-order-evidence.json": "6e5ed0afbdbdb39604d2e6867d0ab662b7c51304f947a2dda5a6505ecc28264c",
+            "epd-cold-provisioning.json": "fe42b6e374395ab71e2bc3ac0ec5b25fd870ad0cb8f3bdcfcde5721e09c3460e",
+            "epd-cold-provisioning.md": "cfe7917d00f68b6929bcf7d5bfade857d2238ff283bb18b1246bccbe22e4f03a"
+          }
+        },
+        {
+          "action": "calculate",
+          "argument": "min(1 * 25.100567874609354, 3 * 13.71292023566119); min(2 * 25.100567874609354, 2 * 13.71292023566119); min(3 * 25.100567874609354, 1 * 13.71292023566119); 4 * 13.71292023566119 / (25.100567874609354 + 13.71292023566119)",
+          "status": "success",
+          "matches_min_rule_checks": [
+            1,
+            2,
+            3
+          ],
+          "expressions": [
+            {
+              "expression": "min(1 * 25.100567874609354, 3 * 13.71292023566119)",
+              "value": 25.100567874609354
+            },
+            {
+              "expression": "min(2 * 25.100567874609354, 2 * 13.71292023566119)",
+              "value": 27.42584047132238
+            },
+            {
+              "expression": "min(3 * 25.100567874609354, 1 * 13.71292023566119)",
+              "value": 13.71292023566119
+            },
+            {
+              "expression": "4 * 13.71292023566119 / (25.100567874609354 + 13.71292023566119)",
+              "value": 1.413211839832821
+            }
+          ]
+        },
+        {
+          "action": "finish"
+        }
+      ],
+      "protocol_retries": 0,
+      "state": "graded",
+      "grade": {
+        "find": true,
+        "epd_opened": true,
+        "calculation_attempt": true,
+        "calculation_after_read": true,
+        "correct_min_rule_all_splits": true,
+        "correct_min_rule_all_splits_after_read": true
+      },
+      "elapsed_seconds": 12.868
+    }
+  ]
+}
