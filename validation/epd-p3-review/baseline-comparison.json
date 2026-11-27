@@ -1,0 +1,116 @@
+{
+  "base_revision": "ed13999d4c8a5ee25d1fefcfd79f0ce14b91c647",
+  "pr_head": "bfc2ef55b610b7fc0b3f594c4479e7ae212b1418",
+  "platform": "Windows",
+  "python": "3.14.6",
+  "pytest_stop_after_failures_or_errors": 5,
+  "pytest_events": [
+    {
+      "node_id_sha256": "45124e84c7befee889705ddb55d229aaa21ade8d82018088a3d5e0db6a131c94",
+      "test": "tests.apps.test_anthropic_agent::test_hostile_http_body_is_rejected_without_leakage[<long-x-sequence>-response_bytes_limit]",
+      "outcome": "error",
+      "cause": "Windows environment variable length"
+    },
+    {
+      "node_id_sha256": "45124e84c7befee889705ddb55d229aaa21ade8d82018088a3d5e0db6a131c94",
+      "test": "tests.apps.test_anthropic_agent::test_hostile_http_body_is_rejected_without_leakage[<long-x-sequence>-response_bytes_limit]",
+      "outcome": "error",
+      "cause": "Windows environment variable length"
+    },
+    {
+      "node_id_sha256": "7790a4c4df2f78fb58db35eeb00a831e3ce5c98f0577810e8bd08ecb101c0d74",
+      "test": "tests.apps.test_anthropic_edit_agent::test_all_actual_revision_bytes_retained_before_checks",
+      "outcome": "failure",
+      "cause": "CRLF/LF assertion"
+    },
+    {
+      "node_id_sha256": "a366243f8904a4dc96fbb71455362d5a845ad5b8e58747d19a518af04e46b093",
+      "test": "tests.apps.test_anthropic_edit_agent::test_workspace_changes_and_special_nodes_fail_closed[symlink]",
+      "outcome": "failure",
+      "cause": "Windows symlink privilege"
+    },
+    {
+      "node_id_sha256": "eaafceeeef9ec3c513263b791490693025a250c3bf71e0dea6f59cf21b22618d",
+      "test": "tests.apps.test_anthropic_edit_agent::test_workspace_changes_and_special_nodes_fail_closed[fifo]",
+      "outcome": "failure",
+      "cause": "Windows lacks os.mkfifo"
+    }
+  ],
+  "pytest_counts": {
+    "base": {
+      "tests": 317,
+      "errors": 2,
+      "failures": 3,
+      "skipped": 6
+    },
+    "head": {
+      "tests": 317,
+      "errors": 2,
+      "failures": 3,
+      "skipped": 6
+    }
+  },
+  "full_ruff_diagnostics_on_each_revision": 166,
+  "full_ruff_fields_compared": [
+    "repository-relative file",
+    "line",
+    "column",
+    "rule",
+    "message"
+  ],
+  "comparison": "The same five pytest failure/error events and the same Ruff diagnostics reproduced on both revisions.",
+  "earlier_review_requested_comparison": {
+    "base_revision": "c45dde4f92dc6976b85a6e6990925bf5797af4ec",
+    "pr_head": "930faac3e45efca27086cb2891d00a10ce67edf2",
+    "platform": "Windows",
+    "python": "3.14.6",
+    "pytest_stop_after_failures_or_errors": 5,
+    "pytest_events": [
+      {
+        "node_id_sha256": "45124e84c7befee889705ddb55d229aaa21ade8d82018088a3d5e0db6a131c94",
+        "test": "tests.apps.test_anthropic_agent::test_hostile_http_body_is_rejected_without_leakage[<long-x-sequence>-response_bytes_limit]",
+        "outcome": "error",
+        "cause": "Windows environment variable length"
+      },
+      {
+        "node_id_sha256": "45124e84c7befee889705ddb55d229aaa21ade8d82018088a3d5e0db6a131c94",
+        "test": "tests.apps.test_anthropic_agent::test_hostile_http_body_is_rejected_without_leakage[<long-x-sequence>-response_bytes_limit]",
+        "outcome": "error",
+        "cause": "Windows environment variable length"
+      },
+      {
+        "node_id_sha256": "7790a4c4df2f78fb58db35eeb00a831e3ce5c98f0577810e8bd08ecb101c0d74",
+        "test": "tests.apps.test_anthropic_edit_agent::test_all_actual_revision_bytes_retained_before_checks",
+        "outcome": "failure",
+        "cause": "CRLF/LF assertion"
+      },
+      {
+        "node_id_sha256": "a366243f8904a4dc96fbb71455362d5a845ad5b8e58747d19a518af04e46b093",
+        "test": "tests.apps.test_anthropic_edit_agent::test_workspace_changes_and_special_nodes_fail_closed[symlink]",
+        "outcome": "failure",
+        "cause": "Windows symlink privilege"
+      },
+      {
+        "node_id_sha256": "eaafceeeef9ec3c513263b791490693025a250c3bf71e0dea6f59cf21b22618d",
+        "test": "tests.apps.test_anthropic_edit_agent::test_workspace_changes_and_special_nodes_fail_closed[fifo]",
+        "outcome": "failure",
+        "cause": "Windows lacks os.mkfifo"
+      }
+    ],
+    "pytest_counts_on_each_revision": {
+      "passed": 306,
+      "failed": 3,
+      "errors": 2,
+      "skipped": 6
+    },
+    "full_ruff_diagnostics_on_each_revision": 149,
+    "full_ruff_fields_compared": [
+      "repository-relative file",
+      "line",
+      "column",
+      "rule",
+      "message"
+    ],
+    "comparison": "The same five pytest failure/error events and the same 149 Ruff diagnostics reproduced on both revisions."
+  }
+}

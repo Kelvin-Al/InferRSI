@@ -1,0 +1,29 @@
+{
+  "head_sha": "bfc2ef55b610b7fc0b3f594c4479e7ae212b1418",
+  "upstream_base_sha": "ed13999d4c8a5ee25d1fefcfd79f0ce14b91c647",
+  "generator_source_revision": "01734265fe4c3262579be356e59e44fa0cf38d92",
+  "checks": {
+    "targeted_knowledge_tests": {
+      "tests": 115,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "catalog_freshness": "passed",
+    "coverage_freshness": "passed",
+    "changed_file_ruff": "passed",
+    "git_diff_check": "passed",
+    "clean_checkout_isolated_wheel": {
+      "wheel": "inferrsi-0.1.dev138+gbfc2ef55b-py3-none-any.whl",
+      "wheel_sha256": "2b440981d21b01d37114a0bcdaf9ff72ebaf68a1a2053cc42bd36a28d5ddd4f4",
+      "find_rank": 1,
+      "case_revision": "sha256:65f7a79686993df6e3efed8d150e674f1fb911bdedb7feea7673c0af0a289fac",
+      "source_wheel_install_bundle_sha256": {
+        "epd-cold-provisioning.md": "24b171a1e2b12b1679f283e8aaa5e38c8cce2d3afd10ca7ab7cd6b1f77eaec41",
+        "epd-cold-provisioning.json": "68e471335193e2027779e1377ee22e3384f6c3c66034f0a7b7631e1b67d2e245"
+      }
+    },
+    "full_repository_checks": "See baseline-comparison.json"
+  },
+  "scope": "Author-executed checkout and package checks on this head. Tool-use evidence remains tied to the earlier case bytes."
+}
